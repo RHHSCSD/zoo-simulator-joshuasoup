@@ -10,7 +10,7 @@ package zoosim;
  */
 public class WaterAnim extends Animal implements ISwimmable{
     public void makeSound(){
-        System.out.println("flop");
+        System.out.println("glug glug");
     }
     public boolean canSurface(){
         return true;

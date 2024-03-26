@@ -8,8 +8,18 @@ package zoosim;
  *
  * @author joshsoup
  */
-public class BirAnim extends Animal {
+public class BirdAnim extends Animal implements IFlyable{
     public void makeSound(){
-        System.out.println("chrip");
+        System.out.println("chirp chirp");
+    }
+    
+    public void fly(){
+    }
+    
+    public boolean isFlying(){
+        return true;
+    }
+    public void land(){
+        
     }
 }

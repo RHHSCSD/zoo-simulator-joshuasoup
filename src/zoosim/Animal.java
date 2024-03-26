@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-import java.util.*
+
 package zoosim;
+import java.util.*;
 
 /**
  *
@@ -13,24 +14,15 @@ public abstract class Animal implements IEntity {
     int age, posX, posY, size, speed, hunger, zooID, fautigue, time;
     String name;
     String species;
-    char sex, direction;
-    Image picture = new Image;
+    char sex;
+    Image picture;
     String sound;
- 
-       
+    double direction = 0;
+    
+    
     public void move(){ //check with this movement thing
-        if(direction == 'N'){
-            posY += speed*time;
-        }
-        if(direction == 'E'){
-            posX += speed*time;
-        }
-        if(direction == 'S'){
-            posY -= speed*time;
-        }
-        if(direction == 'W'){
-            posX -= speed*time;
-        }
+        posX += speed*Math.sin(direction);
+        posY += speed*Math.cos(direction);
     }
     
     public abstract void makeSound();
@@ -40,18 +32,15 @@ public abstract class Animal implements IEntity {
     }
     
     public void sleep(){
-        fautigue = 100;
+        fautigue = 0;
     }
     
     public void turn(int degrees){ //ask about the radian thing for turning
-        
+        direction = Math.toRadians(degrees);
     }
     
     public void place(int x, int y){
-        
+        posX = x;
+        posY = y;
     }
-    public static void generateID(){{
-        //ask mr r-d
-    }
-    
 }
