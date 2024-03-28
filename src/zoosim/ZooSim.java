@@ -20,61 +20,66 @@ public class ZooSim {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        int totalAnimals = 20, rng, age, rng_species, species =1;
+        Animal[] Animals = createAnimals(20);
+
+        //now animals are made, time to feed and take care of them/find out their statistics
+        for(Animal d: Animals){
+                d.feed();
+                d.sleep();
+                d.move();
+                d.info();
+        }
+
+    }
+ 
+    
+    public static Animal[] createAnimals(int numOfAnimals){
+        int totalAnimals = numOfAnimals, rng, age, rng_species, species =1;
         char sex;
         Animal[] Animals = new Animal[totalAnimals];
         String[] names = {"Aiden", "Bella", "Connor", "Diana", "Ethan", "Fiona", "Gabriel", "Hannah", "Ian", "Julia", "Kevin", "Luna", "Mason", "Nora", "Oliver", "Piper", "Quinn", "Ryan", "Sophia", "Tyler"};
         String[] LandSpecies = {"Lion", "Elephant", "Giraffe"};
         String[] WaterSpecies = {"Salmon", "Carp", "Whale"};
         String[] BirdSpecies = {"Owl", "Falcon", "Crow"};
-        while (true){
-            for(int i = 0; i < totalAnimals; i++){
-                //randomize species
-                rng_species =(int)(Math.random()*10);
-                
-                if(rng_species > 7){
-                    species = 2;
-                    
-                } else if (rng_species <= 7 && rng_species >= 4) {
-                    species = 1;
-                    
-                } else if ( rng_species >= 0 && rng_species < 4){
-                    species = 0;
-                }
-                
-                //number to randomize type of animal
-                rng = (int)(Math.random() * 10);
-                
-                //randomize age
-                age = (int)(Math.random() * 10);
-                
-                //randomize sex
-                if(Math.random()*10 < 5){
-                    sex = 'M';
-                }else{
-                    sex = 'W';
-                }
-                //randomize if it's either bird, water, or land
-                if(rng > 7){
-                    Animals[i] = new BirdAnim(i, age, sex, names[i], BirdSpecies[species]);
-                    
-                } else if (rng <= 7 && rng >= 4) {
-                    Animals[i] = new WaterAnim(i, age, sex, names[i], WaterSpecies[species]);
-                    
-                } else if ( rng >= 0 && rng < 4){
-                    Animals[i] = new LandAnim(i, age, sex, names[i], LandSpecies[species]);
-                }
+        for(int i = 0; i < totalAnimals; i++){
+            //randomize species
+            rng_species =(int)(Math.random()*10);
+
+            if(rng_species > 7){
+                species = 2;
+
+            } else if (rng_species <= 7 && rng_species >= 4) {
+                species = 1;
+
+            } else if ( rng_species >= 0 && rng_species < 4){
+                species = 0;
             }
-            //now animals are made, time to feed and take care of them/find out their statistics
-            for(Animal d: Animals){
-                    d.feed();
-                    d.sleep();
-                    d.move();
-                    d.info();
+
+            //number to randomize type of animal
+            rng = (int)(Math.random() * 10);
+
+            //randomize age
+            age = (int)(Math.random() * 10);
+
+            //randomize sex
+            if(Math.random()*10 < 5){
+                sex = 'M';
+            }else{
+                sex = 'W';
             }
-            break;
+            //randomize if it's either bird, water, or land
+            if(rng > 7){
+                Animals[i] = new BirdAnim(i, age, sex, names[i], BirdSpecies[species]);
+
+            } else if (rng <= 7 && rng >= 4) {
+                Animals[i] = new WaterAnim(i, age, sex, names[i], WaterSpecies[species]);
+
+            } else if ( rng >= 0 && rng < 4){
+                Animals[i] = new LandAnim(i, age, sex, names[i], LandSpecies[species]);
+            }
         }
+        return Animals;
+
     }
 }
 

@@ -58,6 +58,5 @@ public abstract class Animal implements IEntity {
         System.out.println("Fautigue: " + fautigue);
         System.out.println("Location: (" + posX + ", " + posY + ")");
         System.out.println();
-
     }
 }
