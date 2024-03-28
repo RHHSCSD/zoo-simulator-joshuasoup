@@ -5,7 +5,10 @@
 package zoosim;
 
 /**
- *
+ * The  IFlyable interface defines the capabilities for entities that can fly
+ * within the zoo simulation. Implementing this interface allows entities to perform
+ * aerial movements, including taking off, flying through the simulation space, and landing.
+ * It also includes a method to check whether the entity is currently in flight.
  * @author joshsoup
  */
 public interface IFlyable {

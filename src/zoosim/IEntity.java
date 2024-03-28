@@ -5,6 +5,11 @@
 package zoosim;
 
 /**
+ * The interface represents a connects the entities within the zoo simulation
+ * that are capable of performing basic actions such as moving, making sounds, eating, and sleeping.
+ * This interface extends the IObject interface, indicating that implementing entities
+ * are also considered objects within the simulation context.
+ * Implementing classes are expected to provide implementations for each of the actions.
  *
  * @author joshsoup
  */
